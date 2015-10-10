@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>UE1_BookShop</display-name>
+  <welcome-file-list>
+    <welcome-file>shop</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>MyTestServlet</servlet-name>
+    <servlet-class>wea5.MyTestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MyTestServlet</servlet-name>
+    <url-pattern>/MyTestServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>BookShopServlet</servlet-name>
+    <servlet-class>wea5.shop.BookShopServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BookShopServlet</servlet-name>
+    <url-pattern>/shop</url-pattern>
+  </servlet-mapping>
+  <listener>
+  	<listener-class>wea5.shop.InitializeContextListener</listener-class>
+  </listener>
+  <context-param>
+  	<param-name>Shop_DELEGATE</param-name>
+  	<param-value>wea5.shop.warehouse.DBShopDelegate</param-value>
+  </context-param>
+    <context-param>
+  	<param-name>DB_DSN</param-name>
+  	<param-value>jdbc:derby::../data/BooksDb</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>DB_USER</param-name>
+  	<param-value>user</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>DB_PASSWORD</param-name>
+  	<param-value>123</param-value>
+  </context-param>
+</web-app>
